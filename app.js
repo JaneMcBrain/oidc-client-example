@@ -72,3 +72,7 @@ Issuer.discover('https://nodejs-sample.criipto.id')
       res.render('error');
     });
   });
+
+  app.get('/login', (req, res, next) => {
+    passport.authenticate('oidc', { acr_values: 'urn:grn:authn:fi:all' })(req, res, next);
+  });
